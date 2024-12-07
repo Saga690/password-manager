@@ -61,13 +61,12 @@ fn main() {
                     eprintln!("Error reading passwords: {}", e);
                     Vec::new()
                 });
-                let search = prompt("Search: ");
+                let search = prompt("Search: ").to_lowercase();
                 for item in &services {
-                    if item.service.as_str() == search.as_str() {
+                    if item.service.to_lowercase() == search {
                         println!("Service = {}, Username = {}, Password = {}",item.service, item.username, item.password);
                     }
-                }
-                    
+                }       
             }
             "4" => {
                 clr();
